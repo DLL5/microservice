@@ -1,0 +1,20 @@
+// 协议版本
+syntax = "proto3";
+// 包名
+package hello;
+option go_package="../hello";
+
+// 服务
+service Hello {
+  rpc sayHello(HelloRequest) returns (HelloResponse) {}
+}
+
+// 消息格式
+message HelloRequest {
+  string name = 1;
+}
+
+// 消息格式
+message HelloResponse {
+  string message = 1;
+}

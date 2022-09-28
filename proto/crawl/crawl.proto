@@ -1,0 +1,60 @@
+syntax = "proto3";
+package crawl;
+option go_package = "../crawl";
+
+// 服务
+service Crawl {
+  rpc setCrawl(SetRequest) returns (SetResponse) {}
+  rpc stopCrawl(StopRequest) returns (StopResponse) {}
+  rpc getData() returns () {}
+}
+
+// 用户注册服务请求格式
+message SetRequest {
+  string name = 1;
+  string password = 2;
+  string birthday = 3;
+  string mobile = 4;
+  string mail = 5;
+  int32 gender = 6;
+}
+
+// 用户注册服务返回格式
+message SetResponse {
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}
+
+// 登陆服务请求消息格式
+message StopRequest {
+  string  name = 1;
+  string password = 2;
+}
+
+// 登陆服务返回消息格式
+message StopResponse {
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}
+
+message GetDataRequest{
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}
+
+message GetDataResponse {
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}

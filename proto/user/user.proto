@@ -1,0 +1,43 @@
+syntax = "proto3";
+package user;
+option go_package = "../user";
+
+// 服务
+service RegisterUser {
+  rpc registerUser(RegisterRequest) returns (RegisterResponse) {}
+  rpc loginUser(LoginRequest) returns (LoginResponse) {}
+}
+
+// 用户注册服务请求格式
+message RegisterRequest {
+  string name = 1;
+  string password = 2;
+  string birthday = 3;
+  string mobile = 4;
+  string mail = 5;
+  int32 gender = 6;
+}
+
+// 用户注册服务返回格式
+message RegisterResponse {
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}
+
+// 登陆服务请求消息格式
+message LoginRequest {
+  string  name = 1;
+  string password = 2;
+}
+
+// 登陆服务返回消息格式
+message LoginResponse {
+  int64 id = 1;
+  int32 vipLevel = 2;
+  string name = 3;
+  string message = 4;
+  string token = 5;
+}
